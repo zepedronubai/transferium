@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import LanguageSwitcher from '../utils/languageSwitcher';
 import { FaCarAlt } from 'react-icons/fa';
 
