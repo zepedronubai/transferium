@@ -9,14 +9,6 @@ export const metadata: Metadata = {
   description: 'Book your Transfer anywhere, anytime.',
 };
 
-const poppinsFont = localFont({
-  src: '../../public/Fonts/Poppins-Regular.woff',
-});
-
-const poppinsFontBold = localFont({
-  src: '../../public/Fonts/Poppins-Bold.woff',
-});
-
 const poppins = localFont({
   src: [
     {
