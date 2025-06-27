@@ -32,7 +32,7 @@ export default function BookYourRide() {
           <div className='relative w-full  md:text-lg text-base'>
             <input
               type='text'
-              placeholder='Armação de pera, Algarve'
+              placeholder='Tavira, Capital Algarvia'
               className='border-[1px] border-customGray md:pr-[34px] md:pl-4 md:py-5 pr-[28px] pl-3 py-3  rounded-2xl w-full '
             />
 
@@ -50,7 +50,7 @@ export default function BookYourRide() {
             <div className='relative w-full  md:text-lg text-base'>
               <input
                 type='text'
-                placeholder='Armação de pera, Algarve'
+                placeholder='24/07/2025 14:30'
                 className='border-[1px] border-customGray  md:pr-[34px] md:pl-4 md:py-5 pr-[28px] pl-3 py-3 rounded-2xl w-full'
               />
 
@@ -63,7 +63,7 @@ export default function BookYourRide() {
             <div className='relative w-full  md:text-lg text-base'>
               <input
                 type='text'
-                placeholder='Armação de pera, Algarve'
+                placeholder='4'
                 className='border-[1px] border-customGray  md:pr-[34px] md:pl-4 md:py-5 pr-[28px] pl-3 py-3  rounded-2xl w-full '
               />
 

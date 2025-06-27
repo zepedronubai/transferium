@@ -4,7 +4,7 @@ import { FaCarAlt } from 'react-icons/fa';
 
 export default function Header() {
   return (
-    <div className='fixed w-full left-0 top-0 bg-white flex justify-center px-2 z-50'>
+    <div className='fixed w-full left-0 top-0 bg-white flex justify-center px-2 z-50  shadow-md'>
       <div className='w-full max-w-[1200px] flex justify-between items-center py-4'>
         <div>
           <Image

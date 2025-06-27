@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import BookYourRide from '../hero/bookYourRide';
+import BookYourRide from './hero/bookYourRide';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useRef, useState, useEffect } from 'react';
 
@@ -32,11 +32,11 @@ export default function Hero() {
         className='absolute top-0 left-0 w-full -z-10 overflow-hidden bg-black opacity-20'
         style={{ height: `${bgHeight}px` }}
       ></div>
-      <div className='flex flex-col md:pt-20 pt-14 md:px-4 px-2 md:gap-10 gap-6 w-full max-w-[1200px] items-center text-center'>
+      <div className='flex flex-col md:pt-20 pt-14 md:px-10 px-2 md:gap-10 gap-6 w-full max-w-[1100px] items-center text-center'>
         <div className='font-bold md:text-2xl text-base text-customYellow'>
           Welcome to Transferium
         </div>
-        <div className='font-black text-white md:text-5xl text-2xl'>
+        <div className='font-bold text-white md:text-5xl text-2xl'>
           PREMIUM TRANSFERS ANYTIME
         </div>
         <div className='md:text-lg text-sm font-medium text-white'>
