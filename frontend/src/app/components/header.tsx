@@ -13,7 +13,7 @@ export default function Header() {
             width={120}
             height={80}
             unoptimized
-            className='md:w-[120px] w-[100px]'
+            className='md:w-[120px] w-[80px]'
           />
         </div>
 
@@ -36,7 +36,7 @@ export default function Header() {
         <div className='md:hidden flex items-center gap-5 font-medium'>
           <LanguageSwitcher />
 
-          <button className='bg-customYellow rounded-xl px-4 py-3 text-xs font-bold flex items-center gap-2'>
+          <button className='bg-customYellow rounded-xl px-4 py-3 text-[10px] font-bold flex items-center gap-1'>
             <span>
               <FaCarAlt />
             </span>
