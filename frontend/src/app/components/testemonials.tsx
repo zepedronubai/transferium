@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import CarouselReviews from '../testemonials/carouselReviews';
+import CarouselReviews from '../testemonials/carouselReviewsOld';
 
 export default function Testemonials() {
   return (
@@ -18,7 +18,7 @@ export default function Testemonials() {
           <div className='md:text-base text-xs font-bold text-customYellow'>
             TESTEMONIALS
           </div>
-          <div className='md:text-2xl text-lg font-bold text-center text-white'>
+          <div className='md:text-2xl text-[20px] font-bold text-center text-white'>
             What Our Costumers Say
           </div>
         </div>

@@ -1,6 +1,8 @@
 import Hero from './components/hero';
 import AboutUs from './components/aboutUs';
 import Testemonials from './components/testemonials';
+import WhyUs from './components/whyUs';
+import Faqs from './components/faqs';
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <Testemonials />
+      <WhyUs />
+      <Faqs />
     </div>
   );
 }

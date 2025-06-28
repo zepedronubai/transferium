@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '../app/utils/embla.css';
 import localFont from 'next/font/local';
 import Header from './components/header';
 import I18nProvider from './utils/i18n-provider';
+import Footer from './components/footer';
 
 export const metadata: Metadata = {
   title: 'Transferium',
@@ -55,6 +57,7 @@ export default function RootLayout({
         <I18nProvider>
           <Header />
           {children}
+          <Footer />
         </I18nProvider>
       </body>
     </html>
