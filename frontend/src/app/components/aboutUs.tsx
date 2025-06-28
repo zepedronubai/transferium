@@ -14,19 +14,19 @@ export default function AboutUs() {
       <div className='flex flex-col md:items-start items-center py-4'>
         <div className='flex flex-col sm:gap-6 gap-4  md:items-start items-center '>
           {/* ABOUT US small e TITULO BIG */}
-          <div className='flex flex-col md:gap-6 gap-3  md:items-start items-start '>
-            <div className='flex flex-col md:items-start items-start w-full '>
+          <div className='flex flex-col md:gap-6 gap-3  md:items-start items-center '>
+            <div className='flex flex-col md:items-start items-center w-full '>
               <div className='md:text-base text-xs font-bold text-customYellow'>
                 ABOUT US
               </div>
 
-              <div className='md:text-2xl text-[20px] font-bold md:text-start text-start'>
+              <div className='md:text-2xl text-[20px] font-bold md:text-start text-center'>
                 Exceptional Car Service Across Portugal
               </div>
             </div>
 
             {/* DESCRICAO MEDIA */}
-            <div className='font-light text-customGrayDarker md:text-sm text-sm  md:text-start text-start'>
+            <div className='font-light text-customGrayDarker md:text-sm text-sm  md:text-start text-center'>
               Every journey matters. With professional drivers, premium
               vehicles, and a focus on safety and punctuality, Transferium Lux
               makes every ride seamless and refined.

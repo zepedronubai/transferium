@@ -40,11 +40,11 @@ const features: Feature[] = [
 export default function WhyUs() {
   return (
     <div className='flex flex-col w-full max-w-[1100px] items-center  gap-10  md:px-4 px-2'>
-      <div className='flex flex-col w-full md:items-center items-start '>
+      <div className='flex flex-col w-full md:items-center items-center '>
         <div className='md:text-base text-xs font-bold text-customYellow'>
           WHY US
         </div>
-        <div className='md:text-2xl text-[20px] font-bold md:text-center text-start text-black'>
+        <div className='md:text-2xl text-[20px] font-bold md:text-center text-center text-black'>
           Our Awesome Features
         </div>
       </div>
