@@ -6,7 +6,7 @@ import Faqs from './components/faqs';
 
 export default function Home() {
   return (
-    <div className='md:mt-[93px] mt-[83px] flex flex-col md:gap-36 gap-20 justify-center items-center'>
+    <div className='md:mt-[92px] mt-[72px] flex flex-col md:gap-36 gap-20 justify-center items-center'>
       <Hero />
       <AboutUs />
       <Testemonials />
