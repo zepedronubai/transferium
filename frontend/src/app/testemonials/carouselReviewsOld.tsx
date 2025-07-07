@@ -6,11 +6,80 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
 
-const reviews = new Array(12).fill({
-  name: 'Carlos Arez',
-  role: 'Customer',
-  text: 'I had a lot of good conversations with the guys and I love the way they drive but the thing is that for real is ne the building.',
-});
+const reviews = [
+  {
+    name: 'Carlos Arez',
+    role: 'Customer',
+    text: 'Tive ótimas conversas com os motoristas e adoro a forma como dirigem. Recomendo muito!',
+    picture: 'https://randomuser.me/api/portraits/men/32.jpg',
+  },
+  {
+    name: 'Emily Johnson',
+    role: 'Client',
+    text: 'The transfer was very comfortable and the driver was punctual and friendly.',
+    picture: 'https://randomuser.me/api/portraits/women/44.jpg',
+  },
+  {
+    name: 'María González',
+    role: 'Cliente',
+    text: 'El servicio fue excelente, llegué a tiempo y el conductor muy amable.',
+    picture: 'https://randomuser.me/api/portraits/women/68.jpg',
+  },
+  {
+    name: 'João Silva',
+    role: 'Cliente',
+    text: 'Muito eficiente, consegui chegar ao meu destino sem stress e rápido.',
+    picture: 'https://randomuser.me/api/portraits/men/56.jpg',
+  },
+  {
+    name: 'Sophia Brown',
+    role: 'Customer',
+    text: 'Great experience! The driver was very professional and the car was clean.',
+    picture: 'https://randomuser.me/api/portraits/women/12.jpg',
+  },
+  {
+    name: 'Miguel Rodríguez',
+    role: 'Cliente',
+    text: 'Servicio confiable y seguro, volvería a usarlo sin duda alguna.',
+    picture: 'https://randomuser.me/api/portraits/men/23.jpg',
+  },
+  {
+    name: 'Laura Martins',
+    role: 'Customer',
+    text: 'Loved the service! The app made booking easy and the transfer was smooth.',
+    picture: 'https://randomuser.me/api/portraits/women/50.jpg',
+  },
+  {
+    name: 'David Smith',
+    role: 'Client',
+    text: 'Friendly driver and great value for money. Highly recommended.',
+    picture: 'https://randomuser.me/api/portraits/men/15.jpg',
+  },
+  {
+    name: 'Ana Costa',
+    role: 'Cliente',
+    text: 'Serviço impecável, o motorista foi muito educado e pontual.',
+    picture: 'https://randomuser.me/api/portraits/women/33.jpg',
+  },
+  {
+    name: 'Michael Lee',
+    role: 'Customer',
+    text: 'Smooth ride and excellent communication from the driver.',
+    picture: 'https://randomuser.me/api/portraits/men/42.jpg',
+  },
+  {
+    name: 'Lucía Fernández',
+    role: 'Cliente',
+    text: 'Muy buena atención y rapidez en el traslado. Muy satisfecha.',
+    picture: 'https://randomuser.me/api/portraits/women/27.jpg',
+  },
+  {
+    name: 'Tomás Oliveira',
+    role: 'Cliente',
+    text: 'Preço justo e serviço de qualidade. Com certeza vou usar novamente.',
+    picture: 'https://randomuser.me/api/portraits/men/48.jpg',
+  },
+];
 
 const variants = {
   enter: (direction: number) => ({
@@ -98,7 +167,7 @@ export default function ReviewCarousel() {
               <div className='flex gap-2 items-center'>
                 <Image
                   alt='client'
-                  src='/face1.png'
+                  src={review.picture}
                   width={44}
                   height={44}
                   unoptimized

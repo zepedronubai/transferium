@@ -2,30 +2,35 @@
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const faqData = [
-  {
-    question: 'Is it safe to book a Transfer Online?',
-    answer:
-      'I had a lot of good conversations with the guys and I love the way they drive but the thing is that for real is ne the building',
-  },
-  {
-    question: 'Can I book a Transfer Any Time?',
-    answer:
-      'Yes, our service is available 24/7. You can book any time that suits you.',
-  },
-  {
-    question: 'How do I book a Transfer?',
-    answer:
-      'Booking is simple: just choose your pickup and drop-off locations and confirm.',
-  },
-  {
-    question: 'Can I pay using cash?',
-    answer: 'Yes, we accept both cash and card payments.',
-  },
-];
+interface FaqItem {
+  questionKey: string;
+  answerKey: string;
+}
 
 export default function FaqsComponent() {
+  const { t } = useTranslation();
+
+  const faqData: FaqItem[] = [
+    {
+      questionKey: 'faqs.safeBooking.question',
+      answerKey: 'faqs.safeBooking.answer',
+    },
+    {
+      questionKey: 'faqs.bookAnytime.question',
+      answerKey: 'faqs.bookAnytime.answer',
+    },
+    {
+      questionKey: 'faqs.howToBook.question',
+      answerKey: 'faqs.howToBook.answer',
+    },
+    {
+      questionKey: 'faqs.payCash.question',
+      answerKey: 'faqs.payCash.answer',
+    },
+  ];
+
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
@@ -37,20 +42,20 @@ export default function FaqsComponent() {
       {faqData.map((faq, index) => (
         <div
           key={index}
-          className={` py-6 ${
-            index === 3 ? '' : 'border-b border-gray-300'
-          } cursor-pointer `}
+          className={`py-6 ${
+            index === faqData.length - 1 ? '' : 'border-b border-gray-300'
+          } cursor-pointer`}
         >
           <button
             onClick={() => toggleFAQ(index)}
             className='w-full flex justify-between items-center text-left cursor-pointer'
           >
             <span
-              className={` text-sm md:text-base ${
-                openIndex === index ? 'font-semibold ' : 'font-normal'
-              } `}
+              className={`text-sm md:text-base ${
+                openIndex === index ? 'font-semibold' : 'font-normal'
+              }`}
             >
-              {faq.question}
+              {t(faq.questionKey)}
             </span>
             {openIndex === index ? (
               <FaChevronUp className='text-customYellow' />
@@ -69,7 +74,7 @@ export default function FaqsComponent() {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
                 <p className='mt-2 md:text-sm text-xs text-gray-600 overflow-hidden'>
-                  {faq.answer}
+                  {t(faq.answerKey)}
                 </p>
               </motion.div>
             )}

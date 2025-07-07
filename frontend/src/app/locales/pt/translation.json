@@ -1,7 +1,96 @@
 {
-  "headerServices": "Serviços",
-  "headerCareers": "Carreiras",
-  "headerAbout": "Sobre",
-  "heroFirst": "Test Drive",
-  "heroSecond": "Coleta de Dados"
+  "header": {
+    "advantages": "Nossas Vantagens",
+    "faqs": "FAQs",
+    "book": "Reservar Transfer"
+  },
+  "hero": {
+    "welcome": "Bem-vindo à Transferium",
+    "headline": "TRANSFERS PREMIUM A QUALQUER HORA",
+    "description": "Experimente um transporte de primeira classe com o nosso serviço de motorista de confiança.",
+    "about_us": "Sobre Nós",
+    "reviews": "Avaliações"
+  },
+  "bookYourRide": {
+    "bookTransfer": "Reserve o seu Transfer",
+    "from": "De:",
+    "fromPlaceholder": "Armação de Pêra, Algarve",
+    "to": "Para:",
+    "toPlaceholder": "Tavira, Algarve",
+    "dateTime": "Data e Hora:",
+    "dateTimePlaceholder": "24/07/2025 14:30",
+    "passengers": "Passageiros:",
+    "passengersPlaceholder": "4",
+    "continue": "Continuar",
+    "fullName": "Nome:",
+    "fullNamePlaceholder": "João Silva",
+    "email": "Email:",
+    "emailPlaceholder": "joao@exemplo.com",
+    "phoneNumber": "Número de Telefone:",
+    "phoneNumberPlaceholder": "+351 912 345 678",
+    "confirmBooking": "Confirmar Reserva",
+    "successMessage": "Reserva Confirmada"
+  },
+  "aboutUs": {
+    "label": "SOBRE NÓS",
+    "title": "Serviço de Transporte Excepcional em Portugal",
+    "description": "Cada viagem importa. Com motoristas profissionais, veículos premium e foco na segurança e pontualidade, a Transferium Lux torna cada trajeto fluido e sofisticado.",
+    "qualityVehicles": "Veículos de Qualidade",
+    "reliableTransportation": "Transporte Confiável",
+    "professionalDrivers": "Motoristas Profissionais",
+    "contactUs": "FALE CONNOSCO"
+  },
+  "whyUs": {
+    "label": "PORQUÊ NÓS",
+    "title": "Nossos Recursos Incríveis",
+    "features": {
+      "fastPickup": {
+        "title": "Recolha Rápida",
+        "description": "Chegue onde precisa rapidamente com o nosso serviço de recolha veloz."
+      },
+      "affordableRate": {
+        "title": "Preço Acessível",
+        "description": "Vá para o seu destino sem gastar muito – preços acessíveis garantidos!"
+      },
+      "availability": {
+        "title": "Disponível 24/7",
+        "description": "Assistência disponível a qualquer hora para todas as suas reservas de viagens."
+      },
+      "safety": {
+        "title": "Garantia de Segurança",
+        "description": "Cada viagem é protegida com nossos protocolos de segurança e motoristas treinados."
+      }
+    }
+  },
+  "faqs": {
+    "safeBooking": {
+      "question": "É seguro reservar um Transfer online?",
+      "answer": "Tive muitas boas conversas com os motoristas e adoro a forma como dirigem, mas a verdade é que o prédio é realmente..."
+    },
+    "bookAnytime": {
+      "question": "Posso reservar um Transfer a qualquer hora?",
+      "answer": "Sim, nosso serviço está disponível 24/7. Você pode reservar a qualquer momento que lhe convier."
+    },
+    "howToBook": {
+      "question": "Como faço para reservar um Transfer?",
+      "answer": "Reservar é simples: basta escolher os locais de retirada e entrega e confirmar."
+    },
+    "payCash": {
+      "question": "Posso pagar em dinheiro?",
+      "answer": "Sim, aceitamos pagamentos em dinheiro e cartão."
+    }
+  },
+  "footer": {
+    "headline1": "Reserve seu Transfer a Qualquer Hora",
+    "headline2": "É Simples e Acessível",
+    "description": "Sabemos a importância de chegar do ponto A ao ponto B com rapidez, segurança e eficiência",
+    "complaintBook": "Livro de Reclamações",
+    "rightsReserved": "2025 Transferium. Todos os direitos reservados.",
+    "developedBy": "Desenvolvido por",
+    "contact": {
+      "phone": "+351968947839",
+      "email": "transferium@gmail.com",
+      "website": "transferium.com"
+    }
+  }
 }

@@ -1,51 +1,54 @@
-import { BsLightning } from 'react-icons/bs';
+'use client';
+
+import { BsLightning, BsShieldCheck } from 'react-icons/bs';
 import { IoWalletOutline } from 'react-icons/io5';
-import { IconType } from 'react-icons';
 import { GoClock } from 'react-icons/go';
-import { BsShieldCheck } from 'react-icons/bs';
+import { IconType } from 'react-icons';
+import { useTranslation } from 'react-i18next';
 
 interface Feature {
   icon: IconType;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
 
-const features: Feature[] = [
-  {
-    icon: BsLightning,
-    title: 'Fast Pickup',
-    description:
-      'Get where you need to be in a flash with our lighting fast pickup service.',
-  },
-  {
-    icon: IoWalletOutline,
-    title: 'Affordable Rate',
-    description:
-      'Get to your destination without breaking the bank - affordable rates guaranteed!',
-  },
-  {
-    icon: GoClock,
-    title: '24/7 Availability',
-    description:
-      'Assistance available around the clock for all your rides booking needs.',
-  },
-  {
-    icon: BsShieldCheck,
-    title: 'Safety Guarantee',
-    description:
-      'Every ride secured with our safety protocols and trained drivers.',
-  },
-];
-
 export default function WhyUs() {
+  const { t } = useTranslation();
+
+  const features: Feature[] = [
+    {
+      icon: BsLightning,
+      titleKey: 'whyUs.features.fastPickup.title',
+      descriptionKey: 'whyUs.features.fastPickup.description',
+    },
+    {
+      icon: IoWalletOutline,
+      titleKey: 'whyUs.features.affordableRate.title',
+      descriptionKey: 'whyUs.features.affordableRate.description',
+    },
+    {
+      icon: GoClock,
+      titleKey: 'whyUs.features.availability.title',
+      descriptionKey: 'whyUs.features.availability.description',
+    },
+    {
+      icon: BsShieldCheck,
+      titleKey: 'whyUs.features.safety.title',
+      descriptionKey: 'whyUs.features.safety.description',
+    },
+  ];
+
   return (
-    <div className='flex flex-col w-full max-w-[1100px] items-center  gap-10  md:px-4 px-2'>
-      <div className='flex flex-col w-full md:items-center items-center '>
+    <div
+      className='flex flex-col w-full max-w-[1100px] items-center gap-10 md:px-4 px-2'
+      id='whyUs'
+    >
+      <div className='flex flex-col w-full md:items-center items-center'>
         <div className='md:text-base text-xs font-bold text-customYellow'>
-          WHY US
+          {t('whyUs.label')}
         </div>
         <div className='md:text-2xl text-[20px] font-bold md:text-center text-center text-black'>
-          Our Awesome Features
+          {t('whyUs.title')}
         </div>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-3 md:gap-y-10 md:gap-x-10 md:max-w-max max-w-[520px]'>
@@ -58,10 +61,10 @@ export default function WhyUs() {
               </div>
               <div className='flex flex-col items-center text-center gap-2'>
                 <div className='font-semibold text-sm md:text-base'>
-                  {feature.title}
+                  {t(feature.titleKey)}
                 </div>
                 <div className='font-light md:text-sm text-[12px] text-customGrayDarker'>
-                  {feature.description}
+                  {t(feature.descriptionKey)}
                 </div>
               </div>
             </div>

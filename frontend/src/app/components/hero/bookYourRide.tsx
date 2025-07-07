@@ -9,8 +9,12 @@ import {
   FaUserGroup,
 } from 'react-icons/fa6';
 import emailjs from 'emailjs-com';
+import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function BookYourRide() {
+  const { t } = useTranslation();
+
   const [dateAndTime, setDateAndTime] = useState('');
   const [dateAndTimeError, setDateAndTimeError] = useState('');
   const [from, setFrom] = useState('');
@@ -23,6 +27,8 @@ export default function BookYourRide() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const formatDateTime = (input: string) => {
     const numbersOnly = input.replace(/\D/g, '').slice(0, 12); // DDMMYYYYHHMM
@@ -138,7 +144,10 @@ export default function BookYourRide() {
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          alert('Email sent successfully!');
+          setShowSuccessAlert(true);
+          setTimeout(() => {
+            setShowSuccessAlert(false);
+          }, 3000);
         },
         (err) => {
           console.error('FAILED...', err);
@@ -149,8 +158,21 @@ export default function BookYourRide() {
 
   return (
     <div className='w-full flex flex-col bg-white rounded-2xl md:p-10 p-6 gap-6 items-start shadow-xl'>
+      <AnimatePresence>
+        {showSuccessAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.4 }}
+            className='fixed bottom-4 right-4 bg-customYellow text-black px-6 py-3 rounded-lg shadow-lg z-50'
+          >
+            {t('bookYourRide.successMessage')}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className='font-bold md:text-[20px] text-base md:mx-0 mx-auto'>
-        Book Your Transfer
+        {t('bookYourRide.bookTransfer')}
       </div>
 
       {step === 'trip' ? (
@@ -159,11 +181,13 @@ export default function BookYourRide() {
           <div className='flex md:flex-row flex-col w-full items-center md:gap-12 gap-6'>
             {/* From Input */}
             <div className='flex flex-col items-start gap-1 w-full'>
-              <label className='font-light md:text-base text-sm'>From:</label>
+              <label className='font-light md:text-base text-sm'>
+                {t('bookYourRide.from')}
+              </label>
               <div className='relative w-full md:text-lg text-base'>
                 <input
                   type='text'
-                  placeholder='Armação de Pêra, Algarve'
+                  placeholder={'Armação de Pêra, Algarve'}
                   value={from}
                   onChange={(e) => setFrom(e.target.value)}
                   className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3 md:pr-12 pr-9'
@@ -174,7 +198,9 @@ export default function BookYourRide() {
 
             {/* To Input */}
             <div className='flex flex-col items-start gap-1 w-full'>
-              <label className='font-light md:text-base text-sm'>To:</label>
+              <label className='font-light md:text-base text-sm'>
+                {t('bookYourRide.to')}
+              </label>
               <div className='relative w-full md:text-lg text-base '>
                 <input
                   type='text'
@@ -194,7 +220,7 @@ export default function BookYourRide() {
               {/* Date & Time Input */}
               <div className='flex flex-col items-start gap-1 w-5/7'>
                 <label className='font-light md:text-base text-sm'>
-                  Date & Time:
+                  {t('bookYourRide.dateTime')}
                 </label>
                 <div className='flex flex-col'>
                   <div className='relative w-full md:text-lg text-base'>
@@ -223,7 +249,7 @@ export default function BookYourRide() {
               {/* Passengers Input */}
               <div className='flex flex-col items-start gap-1 w-2/7'>
                 <label className='font-light md:text-base text-sm'>
-                  Passengers:
+                  {t('bookYourRide.passengers')}
                 </label>
                 <div className='relative w-full md:text-lg text-base'>
                   <input
@@ -246,7 +272,7 @@ export default function BookYourRide() {
                 className='cursor-pointer w-full md:py-5 py-3 bg-customYellow text-black font-bold rounded-2xl md:text-lg text-base flex items-center gap-2 justify-center'
               >
                 {/* <FaCarAlt /> */}
-                Continue
+                {t('bookYourRide.continue')}
               </button>
               {firstStepError && (
                 <p className='text-red-500 text-[10px] mx-auto pl-1 mt-[2px] text-start'>
@@ -262,7 +288,7 @@ export default function BookYourRide() {
           <div className='flex flex-col w-full gap-6'>
             <div className='flex flex-col items-start gap-1 w-full'>
               <label className='font-light md:text-base text-sm'>
-                Full Name:
+                {t('bookYourRide.fullName')}
               </label>
               <input
                 type='text'
@@ -284,7 +310,7 @@ export default function BookYourRide() {
             </div>
             <div className='flex flex-col items-start gap-1 w-full'>
               <label className='font-light md:text-base text-sm'>
-                Phone Number:
+                {t('bookYourRide.phoneNumber')}
               </label>
               <input
                 type='tel'
@@ -300,7 +326,7 @@ export default function BookYourRide() {
                 className='cursor-pointer w-full md:py-5 py-3 bg-customYellow text-black font-bold rounded-2xl md:text-lg text-base flex items-center gap-2 justify-center'
               >
                 <FaCarAlt />
-                Confirm Booking
+                {t('bookYourRide.confirmBooking')}
               </button>
               <p className='text-red-500 text-[10px] mx-auto pl-1 mt-[2px] text-start'>
                 {submitFormError}

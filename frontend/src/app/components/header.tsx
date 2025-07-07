@@ -1,8 +1,13 @@
+'use client';
 import Image from 'next/image';
 import LanguageSwitcher from '../utils/languageSwitcher';
-import { FaCarAlt } from 'react-icons/fa';
+import { FaIdCard } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import { handleScroll } from '../utils/handleScroll';
 
 export default function Header() {
+  const { t } = useTranslation();
+
   return (
     <div className='fixed w-full left-0 top-0 bg-white flex justify-center px-2 z-50  shadow-md'>
       <div className='w-full max-w-[1200px] flex justify-between items-center py-4'>
@@ -19,15 +24,34 @@ export default function Header() {
 
         {/* RIGHT SIDE OF THE HEADER FOR LAPTOP*/}
         <div className=' md:flex hidden justify-between items-center gap-10 text-sm font-medium'>
-          <div>Our Advantages</div>
-          <div>Contact Us</div>
+          <div
+            onClick={() => {
+              handleScroll('whyUs');
+            }}
+            className='cursor-pointer'
+          >
+            {t('header.advantages')}
+          </div>
+          <div
+            onClick={() => {
+              handleScroll('faqs');
+            }}
+            className='cursor-pointer'
+          >
+            {t('header.faqs')}
+          </div>
           <div className='flex items-center gap-5'>
             <LanguageSwitcher />
-            <button className='bg-customYellow rounded-2xl px-10 py-4 font-bold flex items-center gap-2'>
+            <button
+              onClick={() => {
+                handleScroll('contacts');
+              }}
+              className='cursor-pointer bg-customYellow rounded-2xl px-10 py-4 font-bold flex items-center gap-2'
+            >
               <span>
-                <FaCarAlt />
+                <FaIdCard />
               </span>
-              Book a Transfer
+              Contacts
             </button>
           </div>
         </div>
@@ -36,11 +60,16 @@ export default function Header() {
         <div className='md:hidden flex items-center gap-5 font-medium'>
           <LanguageSwitcher />
 
-          <button className='bg-customYellow rounded-xl px-4 py-3 text-[10px] font-bold flex items-center gap-1'>
+          <button
+            onClick={() => {
+              handleScroll('contacts');
+            }}
+            className='cursor-pointer bg-customYellow rounded-xl px-4 py-3 text-[10px] font-bold flex items-center gap-1'
+          >
             <span>
-              <FaCarAlt />
+              <FaIdCard />
             </span>
-            Book a Transfer
+            Contacts
           </button>
         </div>
       </div>

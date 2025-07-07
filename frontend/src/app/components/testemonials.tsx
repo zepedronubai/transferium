@@ -3,7 +3,7 @@ import CarouselReviews from '../testemonials/carouselReviewsOld';
 
 export default function Testemonials() {
   return (
-    <div className='w-full relative flex justify-center'>
+    <div className='w-full relative flex justify-center' id='testemonials'>
       <div className='w-full h-full absolute overflow-hidden'>
         <Image
           alt='testemonials'

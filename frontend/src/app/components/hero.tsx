@@ -4,6 +4,8 @@ import BookYourRide from './hero/bookYourRide';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { handleScroll } from '../utils/handleScroll';
 
 const containerVariants = {
   hidden: {},
@@ -20,6 +22,8 @@ const itemVariants = {
 };
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   const bookRef = useRef<HTMLDivElement>(null);
   const [bgHeight, setBgHeight] = useState(600); // fallback default
 
@@ -48,7 +52,7 @@ export default function Hero() {
         style={{ height: `${bgHeight}px` }}
       ></div>
       <motion.div
-        className='flex flex-col md:pt-20 pt-14 md:px-10 px-2 md:gap-10 gap-6 w-full max-w-[1100px] items-center text-center'
+        className='flex flex-col md:pt-20 pt-14 md:px-10 px-2 md:gap-10 gap-6 w-full max-w-[1080px] items-center text-center'
         variants={containerVariants}
         initial='hidden'
         animate='visible'
@@ -57,34 +61,43 @@ export default function Hero() {
           className='font-bold md:text-2xl text-base text-customYellow'
           variants={itemVariants}
         >
-          Welcome to Transferium
+          {t('hero.welcome')}
         </motion.div>
 
         <motion.div
           className='font-bold text-white md:text-5xl text-2xl'
           variants={itemVariants}
         >
-          PREMIUM TRANSFERS ANYTIME
+          {t('hero.headline')}
         </motion.div>
 
         <motion.div
           className='md:text-lg text-sm font-medium text-white'
           variants={itemVariants}
         >
-          Experience seamless, first-class transportation with our trusted
-          chauffeur service.
+          {t('hero.description')}
         </motion.div>
 
         <motion.div
           className='grid md:grid-cols-2 md:gap-5 gap-3 w-max text-sm md:text-base'
           variants={itemVariants}
         >
-          <button className='w-full bg-customYellow md:py-4 py-3 px-8 rounded-2xl flex items-center justify-center gap-2'>
-            About Us
+          <button
+            className='cursor-pointer w-full bg-customYellow md:py-4 py-3 px-8 rounded-2xl flex items-center justify-center gap-2'
+            onClick={() => {
+              handleScroll('aboutUs');
+            }}
+          >
+            {t('hero.about_us')}
             <FaArrowRightLong />
           </button>
-          <button className='w-full bg-white text-black md:py-4 py-3 px-8 rounded-2xl flex items-center justify-center gap-2'>
-            Reviews
+          <button
+            onClick={() => {
+              handleScroll('testemonials');
+            }}
+            className='cursor-pointer w-full bg-white text-black md:py-4 py-3 px-8 rounded-2xl flex items-center justify-center gap-2'
+          >
+            {t('hero.reviews')}
             <FaArrowRightLong />
           </button>
         </motion.div>

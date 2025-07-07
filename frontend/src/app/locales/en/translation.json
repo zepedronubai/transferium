@@ -1,7 +1,96 @@
 {
-  "headerServices": "Services",
-  "headerCareers": "Careers",
-  "headerAbout": "About",
-  "heroFirst": "Test Drive",
-  "heroSecond": "Data Collection"
+  "header": {
+    "advantages": "Our Advantages",
+    "faqs": "FAQs",
+    "book": "Book a Transfer"
+  },
+  "hero": {
+    "welcome": "Welcome to Transferium",
+    "headline": "PREMIUM TRANSFERS ANYTIME",
+    "description": "Experience seamless, first-class transportation with our trusted chauffeur service.",
+    "about_us": "About Us",
+    "reviews": "Reviews"
+  },
+  "bookYourRide": {
+    "bookTransfer": "Book Your Transfer",
+    "from": "From:",
+    "fromPlaceholder": "Armação de Pêra, Algarve",
+    "to": "To:",
+    "toPlaceholder": "Tavira, Algarve",
+    "dateTime": "Date & Time:",
+    "dateTimePlaceholder": "24/07/2025 14:30",
+    "passengers": "Passengers:",
+    "passengersPlaceholder": "4",
+    "continue": "Continue",
+    "fullName": "Full:",
+    "fullNamePlaceholder": "John Doe",
+    "email": "Email:",
+    "emailPlaceholder": "john@example.com",
+    "phoneNumber": "Phone Number:",
+    "phoneNumberPlaceholder": "+351 912 345 678",
+    "confirmBooking": "Confirm Booking",
+    "successMessage": "Booking Confirmed"
+  },
+  "aboutUs": {
+    "label": "ABOUT US",
+    "title": "Exceptional Car Service Across Portugal",
+    "description": "Every journey matters. With professional drivers, premium vehicles, and a focus on safety and punctuality, Transferium Lux makes every ride seamless and refined.",
+    "qualityVehicles": "Quality Vehicles",
+    "reliableTransportation": "Reliable Transportation",
+    "professionalDrivers": "Professional Drivers",
+    "contactUs": "CONTACT US"
+  },
+  "whyUs": {
+    "label": "WHY US",
+    "title": "Our Awesome Features",
+    "features": {
+      "fastPickup": {
+        "title": "Fast Pickup",
+        "description": "Get where you need to be in a flash with our lighting fast pickup service."
+      },
+      "affordableRate": {
+        "title": "Affordable Rate",
+        "description": "Get to your destination without breaking the bank - affordable rates guaranteed!"
+      },
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Assistance available around the clock for all your rides booking needs."
+      },
+      "safety": {
+        "title": "Safety Guarantee",
+        "description": "Every ride secured with our safety protocols and trained drivers."
+      }
+    }
+  },
+  "faqs": {
+    "safeBooking": {
+      "question": "Is it safe to book a Transfer Online?",
+      "answer": "I had a lot of good conversations with the guys and I love the way they drive but the thing is that for real is ne the building"
+    },
+    "bookAnytime": {
+      "question": "Can I book a Transfer Any Time?",
+      "answer": "Yes, our service is available 24/7. You can book any time that suits you."
+    },
+    "howToBook": {
+      "question": "How do I book a Transfer?",
+      "answer": "Booking is simple: just choose your pickup and drop-off locations and confirm."
+    },
+    "payCash": {
+      "question": "Can I pay using cash?",
+      "answer": "Yes, we accept both cash and card payments."
+    }
+  },
+  "footer": {
+    "headline1": "Book Your Transfer Anytime",
+    "headline2": "It’s Simple And Affordable",
+    "description": "We know the importance of getting from point A to point B with hurry, safety and efficiency",
+    "complaintBook": "Complaint's Book",
+    "rightsReserved": "2025 Transferium. All Rights Reserved.",
+    "developedBy": "Developed by",
+    "contact": {
+      "phone": "+351968947839",
+      "email": "transferium@gmail.com",
+      "website": "transferium.com"
+    }
+  }
 }
