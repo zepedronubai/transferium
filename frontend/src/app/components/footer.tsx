@@ -36,12 +36,12 @@ export default function Footer() {
               </button>
             </Link>
 
-            <Link href='mailto:transferium@gmail.com'>
+            <Link href='mailto:ymfgtrans@ymfgtransportesu.com'>
               <button className='bg-customWhiteLowLowOpacity px-10 py-2 flex justify-center items-center gap-2 md:text-sm text-xs rounded-2xl border-[0.5px] border-white'>
                 <span className='md:text-base text-sm'>
                   <MdMailOutline />
                 </span>
-                <div className=''>transferium@gmail.com</div>
+                <div className=''>ymfgtrans@ymfgtransportesu.com</div>
               </button>
             </Link>
             <button className='bg-customWhiteLowLowOpacity px-10 py-2 flex justify-center items-center gap-2 md:text-sm text-xs rounded-2xl border-[0.5px] border-white'>
@@ -84,12 +84,12 @@ export default function Footer() {
             </button>
           </Link>
 
-          <Link href='mailto:transferium@gmail.com'>
+          <Link href='mailto:ymfgtrans@ymfgtransportesu.com'>
             <button className='bg-customWhiteLowLowOpacity px-10 py-2 flex justify-center items-center gap-2 md:text-sm text-xs rounded-2xl border-[0.5px] border-white'>
               <span className='md:text-base text-sm'>
                 <MdMailOutline />
               </span>
-              <div className=''>transferium@gmail.com</div>
+              <div className=''>ymfgtrans@ymfgtransportesu.com</div>
             </button>
           </Link>
           <button className='bg-customWhiteLowLowOpacity px-10 py-2 flex justify-center items-center gap-2 md:text-sm text-xs rounded-2xl border-[0.5px] border-white'>
