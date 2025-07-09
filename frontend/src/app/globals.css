@@ -39,3 +39,17 @@ button:hover {
   scale: 102%;
   cursor: pointer;
 }
+
+/* Hide the native calendar icon */
+.hide-native-calendar::-webkit-calendar-picker-indicator {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* For Firefox */
+.hide-native-calendar {
+  -moz-appearance: textfield;
+}
+.hide-native-calendar::-moz-calendar-picker-indicator {
+  display: none !important;
+}

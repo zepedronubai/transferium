@@ -109,9 +109,17 @@ export default function Footer() {
             </div>
           </div>
           <div className='flex items-center gap-2 text-white text-xl'>
-            <FaInstagram />
+            <Link href={'https://www.instagram.com/transferiumyarci/'}>
+              <FaInstagram />
+            </Link>
 
-            <FaFacebook />
+            <Link
+              href={
+                'https://www.facebook.com/profile.php?id=61577131387973&locale=pt_PT'
+              }
+            >
+              <FaFacebook />
+            </Link>
           </div>
         </div>
       </div>

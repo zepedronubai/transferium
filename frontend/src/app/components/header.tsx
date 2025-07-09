@@ -28,7 +28,7 @@ export default function Header() {
             onClick={() => {
               handleScroll('whyUs');
             }}
-            className='cursor-pointer'
+            className='cursor-pointer hover:underline'
           >
             {t('header.advantages')}
           </div>
@@ -36,7 +36,7 @@ export default function Header() {
             onClick={() => {
               handleScroll('faqs');
             }}
-            className='cursor-pointer'
+            className='cursor-pointer hover:underline'
           >
             {t('header.faqs')}
           </div>
@@ -46,7 +46,7 @@ export default function Header() {
               onClick={() => {
                 handleScroll('contacts');
               }}
-              className='cursor-pointer bg-customYellow rounded-2xl px-10 py-4 font-bold flex items-center gap-2'
+              className='cursor-pointer bg-customYellow rounded-2xl px-8 py-4 font-semibold flex items-center gap-2'
             >
               <span>
                 <FaIdCard />

@@ -40,7 +40,7 @@ export default function WhyUs() {
 
   return (
     <div
-      className='flex flex-col w-full max-w-[1100px] items-center gap-10 md:px-4 px-2'
+      className='flex flex-col w-full max-w-[1200px] items-center gap-10 md:px-4 px-2'
       id='whyUs'
     >
       <div className='flex flex-col w-full md:items-center items-center'>

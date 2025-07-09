@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaCarAlt } from 'react-icons/fa';
 import {
   FaCalendarDays,
@@ -16,6 +16,7 @@ export default function BookYourRide() {
   const { t } = useTranslation();
 
   const [dateAndTime, setDateAndTime] = useState('');
+  const [minDateTime, setMinDateTime] = useState('');
   const [dateAndTimeError, setDateAndTimeError] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
@@ -30,65 +31,44 @@ export default function BookYourRide() {
 
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
-  const formatDateTime = (input: string) => {
-    const numbersOnly = input.replace(/\D/g, '').slice(0, 12); // DDMMYYYYHHMM
-    let formatted = '';
-
-    if (numbersOnly.length <= 2) {
-      formatted = numbersOnly;
-    } else if (numbersOnly.length <= 4) {
-      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(2)}`;
-    } else if (numbersOnly.length <= 8) {
-      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(
-        2,
-        4
-      )}/${numbersOnly.slice(4)}`;
-    } else {
-      formatted = `${numbersOnly.slice(0, 2)}/${numbersOnly.slice(
-        2,
-        4
-      )}/${numbersOnly.slice(4, 8)} ${numbersOnly.slice(8, 10)}${
-        numbersOnly.length > 10 ? ':' + numbersOnly.slice(10, 12) : ''
-      }`;
-    }
-
-    return formatted;
-  };
+  useEffect(() => {
+    const now = new Date();
+    const formatted = now.toISOString().slice(0, 16); // 'YYYY-MM-DDTHH:MM'
+    setMinDateTime(formatted);
+  }, []);
 
   const checkDateAndTime = (str: string): boolean => {
-    console.log('Date and time', str);
-    const match = str.match(/^(\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2})$/);
-    if (!match) {
-      console.log('Date time didnnt match');
-      setDateAndTimeError('Please Insert Date and Time.');
-      return false;
-    } // prevent error while typing
+    console.log('Date and time input:', str);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, dd, mm, yyyy, hh, min] = match;
-    const inputDate = new Date(`${yyyy}-${mm}-${dd}T${hh}:${min}`);
-    console.log('Input date being verified: ', inputDate);
-    if (isNaN(inputDate.getTime())) {
-      console.log('Invalid date object');
-      setDateAndTimeError('Please Insert Date And Time');
+    if (!str) {
+      setDateAndTimeError('Please insert date and time.');
       return false;
     }
 
-    if (inputDate < new Date()) {
+    const inputDate = new Date(str); // expects ISO format: yyyy-MM-ddTHH:mm
+
+    if (isNaN(inputDate.getTime())) {
+      console.log('Invalid date object');
+      setDateAndTimeError('Invalid date and time.');
+      return false;
+    }
+
+    const now = new Date();
+
+    if (inputDate < now) {
       console.log('Date is in the past');
       setDateAndTimeError('Please enter a date and time in the future.');
       return false;
     }
-    return inputDate >= new Date();
+
+    // Clear any previous error
+    setDateAndTimeError('');
+    return true;
   };
 
   const handleDateAndTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value;
-    console.log('Changing date and time:', raw);
-
-    const formatted = formatDateTime(raw);
-    setDateAndTime(formatted);
-    setDateAndTimeError(''); // clear error while typing
+    setDateAndTime(raw);
   };
 
   const handleTripSubmit = () => {
@@ -108,20 +88,37 @@ export default function BookYourRide() {
   };
 
   const submitForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?\d{9,15}$/; // Accepts international numbers with optional '+' and 9–15 digits
+
     if (!name || !email || !phone) {
       setSubmitFormError('Please fill in all fields.');
       return;
     }
+
+    if (!emailRegex.test(email)) {
+      setSubmitFormError('Please enter a valid email address.');
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      setSubmitFormError('Please enter a valid phone number.');
+      return;
+    }
+
     setSubmitFormError('');
+    const formattedDateTime = dateAndTime.replace('T', ' ');
+
     const messageToBeSent = `One of our clients has requested a transfer with the following details:\n\n
     From: ${from}\n 
     To: ${to}\n
-    Date and Time: ${dateAndTime}\n
+    Date and Time: ${formattedDateTime}\n
     Passengers: ${passengers}\n
     Name: ${name}\n
     Email: ${email}\n
     Phone: ${phone}\n
-    `;
+  `;
+
     console.log('Message to be sent:', messageToBeSent);
 
     const templateParams = {
@@ -145,6 +142,8 @@ export default function BookYourRide() {
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
           setShowSuccessAlert(true);
+          clearFormInputs();
+
           setTimeout(() => {
             setShowSuccessAlert(false);
           }, 3000);
@@ -154,6 +153,31 @@ export default function BookYourRide() {
           setSubmitFormError('There was an error sending the email.');
         }
       );
+  };
+
+  const clearFormInputs = () => {
+    setDateAndTime('');
+    setDateAndTimeError('');
+    setFrom('');
+    setTo('');
+    setPassengers('');
+    setStep('trip');
+    setFirstStepError('');
+    setSubmitFormError('');
+    setName('');
+    setEmail('');
+    setPhone('');
+  };
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleIconClick = () => {
+    // Only works in modern browsers
+    if (inputRef.current?.showPicker) {
+      inputRef.current.showPicker();
+    } else {
+      inputRef.current?.focus(); // Fallback
+    }
   };
 
   return (
@@ -216,27 +240,34 @@ export default function BookYourRide() {
 
           {/* DATE, PASSENGERS & BUTTON */}
           <div className='flex md:flex-row flex-col w-full items-end md:gap-12 gap-6'>
-            <div className='flex md:gap-10 gap-5 items-start w-full'>
+            <div className='flex md:flex-row flex-col md:gap-10 gap-6 items-start w-full'>
               {/* Date & Time Input */}
-              <div className='flex flex-col items-start gap-1 w-5/7'>
+              <div className='flex flex-col items-start gap-1 w-full'>
                 <label className='font-light md:text-base text-sm'>
                   {t('bookYourRide.dateTime')}
                 </label>
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   <div className='relative w-full md:text-lg text-base'>
                     <input
-                      type='text'
+                      ref={inputRef}
+                      type='datetime-local'
+                      id='custom-date-time'
                       value={dateAndTime}
                       onChange={handleDateAndTimeChange}
                       placeholder='24/07/2025 14:30'
-                      maxLength={16}
+                      min={minDateTime}
                       className={`border ${
                         dateAndTimeError
                           ? 'border-red-500'
                           : 'border-customGray'
-                      } rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3 md:pr-12 pr-9 appearance-none`}
+                      } rounded-2xl w-full md:py-5 py-3 md:px-4 px-3  appearance-none`}
                     />
-                    <FaCalendarDays className='absolute md:right-4 right-3 top-1/2 transform -translate-y-1/2 text-customYellow pointer-events-none' />
+                    <div
+                      onClick={handleIconClick}
+                      className='absolute md:right-4 right-3 top-1/2 transform -translate-y-1/2 text-customYellow bg-white px-1 py-1'
+                    >
+                      <FaCalendarDays className='pointer-events-none' />
+                    </div>
                   </div>
                   {dateAndTimeError && (
                     <p className='text-red-500 text-[8px] mr-auto pl-1 mt-[2px] text-start'>
@@ -247,7 +278,7 @@ export default function BookYourRide() {
               </div>
 
               {/* Passengers Input */}
-              <div className='flex flex-col items-start gap-1 w-2/7'>
+              <div className='flex flex-col items-start gap-1 w-full'>
                 <label className='font-light md:text-base text-sm'>
                   {t('bookYourRide.passengers')}
                 </label>
@@ -269,7 +300,7 @@ export default function BookYourRide() {
             <div className='flex flex-col gap-[2px] w-full'>
               <button
                 onClick={() => handleTripSubmit()}
-                className='cursor-pointer w-full md:py-5 py-3 bg-customYellow text-black font-bold rounded-2xl md:text-lg text-base flex items-center gap-2 justify-center'
+                className='cursor-pointer w-full md:py-5 py-3 bg-customYellow text-black font-semibold rounded-2xl md:text-lg text-base flex items-center gap-2 justify-center'
               >
                 {/* <FaCarAlt /> */}
                 {t('bookYourRide.continue')}
@@ -295,7 +326,7 @@ export default function BookYourRide() {
                 placeholder='John Doe'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3'
+                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3 appearance-none'
               />
             </div>
             <div className='flex flex-col items-start gap-1 w-full'>
@@ -305,7 +336,7 @@ export default function BookYourRide() {
                 placeholder='john@example.com'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3'
+                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3 appearance-none'
               />
             </div>
             <div className='flex flex-col items-start gap-1 w-full'>
@@ -317,7 +348,7 @@ export default function BookYourRide() {
                 placeholder='+351 912 345 678'
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3'
+                className='border border-customGray rounded-2xl w-full md:py-5 py-3 md:pl-4 pl-3 appearance-none'
               />
             </div>
             <div className='flex flex-col gap-[2px] w-full'>

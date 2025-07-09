@@ -7,8 +7,33 @@ import I18nProvider from './utils/i18n-provider';
 import Footer from './components/footer';
 
 export const metadata: Metadata = {
-  title: 'Transferium',
-  description: 'Book your Transfer anywhere, anytime.',
+  title: 'Transferium | Book Your Private Transfer in Portugal Easily',
+  description:
+    'Book your private transfers anywhere in Portugal, anytime. Safe, fast, and reliable rides at your fingertips.',
+  openGraph: {
+    title: 'Transferium | Book Your Private Transfer in Portugal Easily',
+    description:
+      'Book your private transfers anywhere in Portugal, anytime. Safe, fast, and reliable rides at your fingertips.',
+    url: 'https://www.transferium.online',
+    siteName: 'Transferium',
+    images: [
+      {
+        url: 'https://www.transferium.online/logo.svg', // use your real domain + image path here
+        width: 1200,
+        height: 630,
+        alt: 'Transferium Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Transferium | Book Your Private Transfer in Portugal Easily',
+    description:
+      'Book your private transfers anywhere in Portugal, anytime. Safe, fast, and reliable rides at your fingertips.',
+    images: ['https://www.transferium.online/twitter.avif'],
+  },
 };
 
 const poppins = localFont({

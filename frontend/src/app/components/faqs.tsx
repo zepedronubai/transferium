@@ -5,7 +5,7 @@ export default function Faqs() {
   return (
     <div
       id='faqs'
-      className='flex md:flex-row flex-col w-full max-w-[1100px] items-center  md:gap-10 gap-0  md:px-4 px-2'
+      className='flex md:flex-row flex-col w-full max-w-[1200px] items-center  md:gap-10 gap-0  md:px-4 px-2'
     >
       <div className='flex flex-col md:items-start items-center md:gap-4 gap-3 w-full'>
         <div className='flex flex-col  md:items-start items-center '>
@@ -25,7 +25,7 @@ export default function Faqs() {
           src={'/faqs.png'}
           width={1000}
           height={548}
-          className='rounded-2xl md:max-w-[480px]'
+          className='rounded-2xl md:max-w-[500px]'
         />
       </div>
       <FaqsComponent />

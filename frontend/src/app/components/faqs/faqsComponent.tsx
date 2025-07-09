@@ -38,7 +38,7 @@ export default function FaqsComponent() {
   };
 
   return (
-    <div className='w-full flex flex-col gap-0 md:py-5 py-0'>
+    <div className='w-full flex flex-col gap-0 md:py-5 py-0 grow md:px-0 px-1'>
       {faqData.map((faq, index) => (
         <div
           key={index}

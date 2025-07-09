@@ -10,14 +10,14 @@ export default function AboutUs() {
   return (
     <div
       id='aboutUs'
-      className='w-full md:max-w-[1100px] max-w-[600px]  flex  sm:gap-10 gap-3 justify-center md:px-4 px-2 relative '
+      className='w-full md:max-w-[1200px] max-w-[600px]  flex  sm:gap-10 gap-3 justify-center md:px-4 px-2 relative '
     >
       <Image
         alt='about-img'
         src={'/about.webp'}
         width={440}
         height={380}
-        className='rounded-2xl object-cover   max-h-[380px]  md:w-[440px] w-full md:block hidden'
+        className='rounded-2xl object-cover   max-h-[380px]  md:w-[480px] w-full md:block hidden'
       />
       <div className='flex flex-col md:items-start items-center py-4'>
         <div className='flex flex-col sm:gap-6 gap-4  md:items-start items-center '>
