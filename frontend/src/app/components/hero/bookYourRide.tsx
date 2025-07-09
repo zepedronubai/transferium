@@ -127,7 +127,7 @@ export default function BookYourRide() {
       phone,
       from,
       to,
-      date_and_time: dateAndTime,
+      date_and_time: formattedDateTime,
       passengers,
     };
 
