@@ -27,12 +27,12 @@ export default function Footer() {
             </div>
           </div>
           <div className='md:hidden flex flex-col gap-4 md:my-auto font-semibold'>
-            <Link href='tel:+351968947839' className='w-full'>
+            <Link href='tel:+351912980403' className='w-full'>
               <button className='bg-customWhiteLowLowOpacity w-full px-10 py-2 flex justify-center items-center gap-2 md:text-sm text-xs rounded-2xl border-[0.5px] border-white'>
                 <span className='md:text-base text-sm'>
                   <FiPhone />
                 </span>
-                <div className=''>+351968947839</div>
+                <div className=''>+351912980403</div>
               </button>
             </Link>
 

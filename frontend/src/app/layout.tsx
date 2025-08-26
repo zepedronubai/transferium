@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 import Header from './components/header';
 import I18nProvider from './utils/i18n-provider';
 import Footer from './components/footer';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'Transferium | Book Your Private Transfer in Portugal Easily',
@@ -80,7 +81,9 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${poppins.className} antialiased `}>
         <I18nProvider>
+          <Analytics />
           <Header />
+
           {children}
           <Footer />
         </I18nProvider>
