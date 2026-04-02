@@ -11,7 +11,7 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className='w-full bg-customYellow md:mt-36 mt-20'>
+    <footer className='w-full bg-customYellow md:mt-36 mt-20'>
       <div
         className='flex md:flex-row md:justify-between flex-col   gap-4 py-10 w-full max-w-[1100px] md:px-4 px-2 mx-auto'
         id='contacts'
@@ -61,7 +61,7 @@ export default function Footer() {
             />
             <Image
               src={'/turismo.png'}
-              alt='turismo-img'
+              alt='Turismo de Portugal official certification badge'
               width={100}
               height={50}
               className='md:w-[100px] w-[80px] '
@@ -123,6 +123,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

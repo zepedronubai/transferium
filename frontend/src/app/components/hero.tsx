@@ -41,7 +41,7 @@ export default function Hero() {
         style={{ height: `${bgHeight}px` }}
       >
         <Image
-          alt='hero-img'
+          alt='Premium private transfer service in Portugal - luxury vehicle on the road'
           src='/hero.jpg'
           fill
           className='object-cover blur-xs'
@@ -64,12 +64,12 @@ export default function Hero() {
           {t('hero.welcome')}
         </motion.div>
 
-        <motion.div
+        <motion.h1
           className='font-bold text-white md:text-5xl text-2xl'
           variants={itemVariants}
         >
           {t('hero.headline')}
-        </motion.div>
+        </motion.h1>
 
         <motion.div
           className='md:text-lg text-sm font-medium text-white'

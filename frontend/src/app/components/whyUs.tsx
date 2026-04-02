@@ -39,7 +39,7 @@ export default function WhyUs() {
   ];
 
   return (
-    <div
+    <section
       className='flex flex-col w-full max-w-[1200px] items-center gap-10 md:px-4 px-2'
       id='whyUs'
     >
@@ -47,9 +47,9 @@ export default function WhyUs() {
         <div className='md:text-base text-xs font-bold text-customYellow'>
           {t('whyUs.label')}
         </div>
-        <div className='md:text-2xl text-[20px] font-bold md:text-center text-center text-black'>
+        <h2 className='md:text-2xl text-[20px] font-bold md:text-center text-center text-black'>
           {t('whyUs.title')}
-        </div>
+        </h2>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-3 md:gap-y-10 md:gap-x-10 md:max-w-max max-w-[520px]'>
         {features.map((feature, index) => {
@@ -71,6 +71,6 @@ export default function WhyUs() {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

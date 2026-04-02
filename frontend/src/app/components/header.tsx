@@ -9,7 +9,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className='fixed w-full left-0 top-0 bg-white flex justify-center px-2 z-50  shadow-md'>
+    <header className='fixed w-full left-0 top-0 bg-white flex justify-center px-2 z-50  shadow-md'>
       <div className='w-full max-w-[1200px] flex justify-between items-center py-4'>
         <div>
           <Image
@@ -23,7 +23,7 @@ export default function Header() {
         </div>
 
         {/* RIGHT SIDE OF THE HEADER FOR LAPTOP*/}
-        <div className=' md:flex hidden justify-between items-center gap-10 text-sm font-medium'>
+        <nav className=' md:flex hidden justify-between items-center gap-10 text-sm font-medium'>
           <div
             onClick={() => {
               handleScroll('whyUs');
@@ -54,7 +54,7 @@ export default function Header() {
               Contacts
             </button>
           </div>
-        </div>
+        </nav>
 
         {/* RIGHT SIDE OF THE HEADER FOR MOBILE */}
         <div className='md:hidden flex items-center gap-5 font-medium'>
@@ -73,6 +73,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

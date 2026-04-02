@@ -8,12 +8,12 @@ export default function AboutUs() {
   const { t } = useTranslation();
 
   return (
-    <div
+    <section
       id='aboutUs'
       className='w-full md:max-w-[1200px] max-w-[600px]  flex  sm:gap-10 gap-3 justify-center md:px-4 px-2 relative '
     >
       <Image
-        alt='about-img'
+        alt='Professional Transferium driver and luxury vehicle ready for private transfer in Portugal'
         src={'/about.webp'}
         width={440}
         height={380}
@@ -28,9 +28,9 @@ export default function AboutUs() {
                 {t('aboutUs.label')}
               </div>
 
-              <div className='md:text-2xl text-[20px] font-bold md:text-start text-center'>
+              <h2 className='md:text-2xl text-[20px] font-bold md:text-start text-center'>
                 {t('aboutUs.title')}
-              </div>
+              </h2>
             </div>
 
             {/* DESCRICAO MEDIA */}
@@ -38,7 +38,7 @@ export default function AboutUs() {
               {t('aboutUs.description')}
             </div>
             <Image
-              alt='about-img'
+              alt='Professional Transferium driver and luxury vehicle ready for private transfer in Portugal'
               src={'/about.webp'}
               width={440}
               height={300}
@@ -75,6 +75,6 @@ export default function AboutUs() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

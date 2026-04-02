@@ -3,10 +3,10 @@ import CarouselReviews from '../testemonials/carouselReviewsOld';
 
 export default function Testemonials() {
   return (
-    <div className='w-full relative flex justify-center' id='testemonials'>
+    <section className='w-full relative flex justify-center' id='testemonials'>
       <div className='w-full h-full absolute overflow-hidden'>
         <Image
-          alt='testemonials'
+          alt='Happy customers sharing their experience with Transferium Portugal'
           src={'/testemonials.jpg'}
           fill
           className='object-cover -z-10'
@@ -18,12 +18,12 @@ export default function Testemonials() {
           <div className='md:text-base text-xs font-bold text-customYellow'>
             TESTEMONIALS
           </div>
-          <div className='md:text-2xl text-[20px] font-bold md:text-center text-center text-white'>
-            What Our Costumers Say
-          </div>
+          <h2 className='md:text-2xl text-[20px] font-bold md:text-center text-center text-white'>
+            What Our Customers Say
+          </h2>
         </div>
         <CarouselReviews />
       </div>
-    </div>
+    </section>
   );
 }
